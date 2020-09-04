@@ -2,6 +2,8 @@
 
 Simple Python/Flask wrapper around [speedtest-cli](https://github.com/sivel/speedtest-cli) that can be scraped by [Prometheus](https://prometheus.io).
 
+## Docker
+
 Building the image:
 
 ```bash
@@ -65,3 +67,12 @@ speedtest_ping{server_name="Flint, MI",server_sponsor="University of Michigan-Fl
 speedtest_bytes_sent{server_name="Flint, MI",server_sponsor="University of Michigan-Flint",client_ip="68.64.123.31",client_isp="Comcast Cable",client_isp_rating="3.7"} 5242880
 speedtest_bytes_received{server_name="Flint, MI",server_sponsor="University of Michigan-Flint",client_ip="68.64.123.31",client_isp="Comcast Cable",client_isp_rating="3.7"} 195737692◁
 ```
+
+## Local
+
+```bash
+❯ make install
+...
+```
+
+This'll copy the script to `/usr/local/bin/speedtest-exporter.py`, the systemd unit file to `/etc/systemd/system/speedtest-exporter.service`, reload systemd, and lastly, enable and start `speedtest-exporter`.

@@ -11,3 +11,5 @@ install:
 	cp speedtest-exporter.py /usr/local/bin/
 	cp speedtest-exporter.service /etc/systemd/system/
 	systemctl daemon-reload
+	systemctl enable speedtest-exporter
+	systemctl start speedtest-exporter
