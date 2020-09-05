@@ -1,6 +1,6 @@
 # speedtest-exporter
 
-Simple Python/Flask wrapper around [speedtest-cli](https://github.com/sivel/speedtest-cli) that can be scraped by [Prometheus](https://prometheus.io).
+Simple Python/Flask wrapper around [speedtest-cli](https://github.com/sivel/speedtest-cli) that can be scraped by [Prometheus](https://prometheus.io). With that said, you'll need `flask` and `speedtest` installed...
 
 ## Grafana
 
