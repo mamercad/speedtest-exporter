@@ -2,6 +2,141 @@
 
 Simple Python/Flask wrapper around [speedtest-cli](https://github.com/sivel/speedtest-cli) that can be scraped by [Prometheus](https://prometheus.io).
 
+## Grafana
+
+Here's what I'm doing as far as Grafana goes:
+
+![Image of speedtest-exporter](speedtest-exporter.png)
+
+Here's the panel JSON:
+
+```json
+{
+  "aliasColors": {},
+  "bars": false,
+  "dashLength": 10,
+  "dashes": false,
+  "fieldConfig": {
+    "defaults": {
+      "custom": {},
+      "links": []
+    },
+    "overrides": []
+  },
+  "fill": 1,
+  "fillGradient": 0,
+  "gridPos": {
+    "h": 10,
+    "w": 18,
+    "x": 0,
+    "y": 9
+  },
+  "hiddenSeries": false,
+  "id": 4,
+  "legend": {
+    "alignAsTable": true,
+    "avg": true,
+    "current": false,
+    "max": true,
+    "min": true,
+    "show": true,
+    "total": false,
+    "values": true
+  },
+  "lines": true,
+  "linewidth": 1,
+  "nullPointMode": "connected",
+  "percentage": false,
+  "pluginVersion": "7.1.5",
+  "pointradius": 2,
+  "points": false,
+  "renderer": "flot",
+  "seriesOverrides": [
+    {
+      "$$hashKey": "object:116",
+      "alias": "Upload",
+      "transform": "negative-Y"
+    },
+    {
+      "$$hashKey": "object:123",
+      "alias": "Ping",
+      "fill": 0,
+      "nullPointMode": "null",
+      "pointradius": 3,
+      "points": true,
+      "yaxis": 2
+    }
+  ],
+  "spaceLength": 10,
+  "stack": false,
+  "steppedLine": false,
+  "targets": [
+    {
+      "expr": "speedtest_download",
+      "interval": "",
+      "legendFormat": "Download",
+      "refId": "A"
+    },
+    {
+      "expr": "speedtest_upload",
+      "interval": "",
+      "legendFormat": "Upload",
+      "refId": "B"
+    },
+    {
+      "expr": "speedtest_ping",
+      "interval": "",
+      "legendFormat": "Ping",
+      "refId": "C"
+    }
+  ],
+  "thresholds": [],
+  "timeFrom": null,
+  "timeRegions": [],
+  "timeShift": null,
+  "title": "Speedtest",
+  "tooltip": {
+    "shared": true,
+    "sort": 0,
+    "value_type": "individual"
+  },
+  "transparent": true,
+  "type": "graph",
+  "xaxis": {
+    "buckets": null,
+    "mode": "time",
+    "name": null,
+    "show": true,
+    "values": []
+  },
+  "yaxes": [
+    {
+      "$$hashKey": "object:67",
+      "format": "bps",
+      "label": null,
+      "logBase": 1,
+      "max": null,
+      "min": null,
+      "show": true
+    },
+    {
+      "$$hashKey": "object:68",
+      "format": "ms",
+      "label": null,
+      "logBase": 1,
+      "max": null,
+      "min": null,
+      "show": true
+    }
+  ],
+  "yaxis": {
+    "align": false,
+    "alignLevel": null
+  },
+  "datasource": null
+}
+```
+
 ## Docker
 
 Building the image:
